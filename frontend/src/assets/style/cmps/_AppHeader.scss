@@ -1,0 +1,61 @@
+@mixin btnText() {
+  font-size: 0.875em;
+  font-weight: bold;
+}
+
+.header-container {
+  position: relative;
+  padding: 0 2em;
+  box-shadow: 0px 1px 5px rgb(229, 227, 227);
+
+  & .app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 4.5em;
+    padding: 1em 0;
+
+    & .sidebar-btn {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      width: 2.5em;
+      height: 2.5em;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: rgba(239, 240, 243, 0.7);
+      }
+    }
+
+    & img {
+      cursor: pointer;
+    }
+
+    & .btn-login {
+      padding: 0 1em;
+      width: 6em;
+      height: 2.5em;
+      border: 1px solid rgb(230, 226, 226);
+      border-radius: 5px;
+      cursor: pointer;
+      margin-inline-end: 1em;
+      background-color: white;
+
+      & span {
+        @include btnText();
+        color: #0d1216;
+      }
+    }
+
+    & .btn-signup {
+      @extend .btn-login;
+      background-color: #8b3dff;
+
+      & span {
+        @include btnText();
+        color: #fff;
+      }
+    }
+  }
+}
