@@ -1,41 +1,98 @@
+@mixin flexCenter($flex-direction) {
+  display: flex;
+  justify-content: center;
+  flex-direction: $flex-direction;
+}
+
+@mixin btn() {
+  cursor: pointer;
+}
+
 .login-signup-form {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 20%;
-    left: 35%;
-    padding: 1em;
-    border-radius: 10px;
-    background-color: rgb(247, 248, 250);
-    width: 20em;
-    height: 30em;
-    z-index: 4;
-}
+  @include flexCenter(column);
+  position: fixed;
+  top: 20%;
+  left: 35%;
+  padding: 1em;
+  border-radius: 10px;
+  background-color: rgb(247, 248, 250);
+  width: 20em;
+  height: fit-content;
+  z-index: 4;
 
-.login-signup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(4px);
-    background-color: rgba(100, 99, 99, 0.5);
-    z-index: 2;
-    transform: 2s;
+  & div {
+    &.form-input {
+      @include flexCenter(column);
+      margin-block-end: 1em;
+      & input {
+        padding: 0.5em;
+      }
+    }
+  }
 
-}
-
-.login-signup-form .close-btn {
-    display: flex;
-    justify-content: center;
+  & .close-btn {
+    @include flexCenter(row);
+    @include btn();
     align-items: center;
     position: relative;
     right: -20em;
     top: -1.0625em;
-    background-color: #11171D99;
+    background-color: #11171d99;
     width: fit-content;
     padding: 0.5em;
     border-radius: 50%;
-    cursor: pointer;
     color: #fff;
+  }
+
+  & .divide {
+    display: flex;
+
+    & hr {
+      width: 40%;
+    }
+  }
+
+  & button {
+    @include flexCenter(row);
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid rgba(199, 199, 200, 0.7);
+    width: 100%;
+    margin-block: 0.5em;
+    background-color: #fff;
+    padding-block: 0.5em;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: rgba(228, 228, 229, 0.7);
+    }
+
+    & span {
+      width: 100%;
+    }
+  }
+
+  & .submit-btn {
+    @include flexCenter(row);
+    margin-inline: auto;
+    padding-block: 0.6em;
+    background-color: #8b3dff;
+    color: #fff;
+
+    &:hover {
+      background-color: #7334d1;
+    }
+  }
+}
+
+.login-signup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(4px);
+  background-color: rgba(100, 99, 99, 0.5);
+  z-index: 2;
+  transform: 2s;
 }

@@ -3,33 +3,45 @@
   font-weight: bold;
 }
 
+@mixin flexCenter() {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .header-container {
   position: relative;
   padding: 0 2em;
   box-shadow: 0px 1px 5px rgb(229, 227, 227);
 
   & .app-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 4.5em;
-    padding: 1em 0;
+    @include flexCenter();
+    min-height: 4em;
 
-    & .sidebar-btn {
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      width: 2.5em;
-      height: 2.5em;
-      border-radius: 5px;
+    & section {
+      &:first-of-type {
+        @include flexCenter();
 
-      &:hover {
-        background-color: rgba(239, 240, 243, 0.7);
+        & .sidebar-btn {
+          @include flexCenter();
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          padding: 0.3em;
+          border-radius: 5px;
+          font-size: 1em;
+
+          &:hover {
+            background-color: rgba(228, 228, 229, 0.7);
+          }
+        }
+
+        & img {
+          @include flexCenter();
+          cursor: pointer;
+          margin-inline-start: 0.5em;
+        }
       }
-    }
-
-    & img {
-      cursor: pointer;
     }
 
     & .btn-login {
@@ -42,6 +54,10 @@
       margin-inline-end: 1em;
       background-color: white;
 
+      &:hover {
+        background-color: rgb(241, 241, 242);
+      }
+
       & span {
         @include btnText();
         color: #0d1216;
@@ -51,6 +67,10 @@
     & .btn-signup {
       @extend .btn-login;
       background-color: #8b3dff;
+
+      &:hover {
+        background-color: #7334d1;
+      }
 
       & span {
         @include btnText();
