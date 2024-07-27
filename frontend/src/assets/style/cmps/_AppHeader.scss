@@ -44,37 +44,56 @@
       }
     }
 
-    & .btn-login {
-      padding: 0 1em;
-      width: 6em;
-      height: 2.5em;
-      border: 1px solid rgb(230, 226, 226);
-      border-radius: 5px;
-      cursor: pointer;
-      margin-inline-end: 1em;
-      background-color: white;
+    & section {
+      &:nth-of-type(2) {
+        @include flexCenter();
 
-      &:hover {
-        background-color: rgb(241, 241, 242);
-      }
+        & .btn-login {
+          padding: 0 1em;
+          width: 6em;
+          height: 2.5em;
+          border: 1px solid rgb(230, 226, 226);
+          border-radius: 5px;
+          cursor: pointer;
+          margin-inline-end: 1em;
+          background-color: white;
 
-      & span {
-        @include btnText();
-        color: #0d1216;
-      }
-    }
+          &:hover {
+            background-color: rgb(241, 241, 242);
+          }
 
-    & .btn-signup {
-      @extend .btn-login;
-      background-color: #8b3dff;
+          & span {
+            @include btnText();
+            color: #0d1216;
+          }
+        }
 
-      &:hover {
-        background-color: #7334d1;
-      }
+        & .btn-signup {
+          @extend .btn-login;
+          background-color: #8b3dff;
 
-      & span {
-        @include btnText();
-        color: #fff;
+          &:hover {
+            background-color: #7334d1;
+          }
+
+          & span {
+            @include btnText();
+            color: #fff;
+          }
+        }
+
+        & .profile {
+          display: inline-block;
+          width: 5em;
+
+          & img {
+            cursor: pointer;
+          }
+        }
+
+        & .btn-logout {
+          @extend .btn-login;
+        }
       }
     }
   }

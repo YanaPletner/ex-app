@@ -1,0 +1,16 @@
+@mixin flexCenter() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.canvas-container {
+  margin-block-start: 5em;
+  height: fit-content;
+
+  & canvas {
+    outline: none;
+    border-radius: 5px;
+    border: 0.5px solid rgb(194, 192, 192) !important;
+  }
+}
