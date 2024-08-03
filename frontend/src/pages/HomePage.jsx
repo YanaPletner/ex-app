@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { AppHeader } from "../cmps/AppHeader.jsx";
-import { Layout } from "./Layout.jsx";
+// import { Layout } from "./Layout.jsx";
 
 export function HomePage() {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(true);
@@ -28,7 +28,7 @@ export function HomePage() {
           </section>
         )}
 
-        {isUserLoggedIn && <Layout />}
+        {/* {isUserLoggedIn && <Layout />} */}
       </main>
     </>
   );

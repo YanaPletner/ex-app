@@ -1,3 +1,6 @@
+$breakpoint-tablet: 768px;
+$breakpoint-phone: 500px;
+
 @mixin btnText() {
   font-size: 0.875em;
   font-weight: bold;
@@ -22,7 +25,8 @@
       &:first-of-type {
         @include flexCenter();
 
-        & .sidebar-btn {
+        & .navbar-btn {
+          opacity: 0;
           @include flexCenter();
           background-color: transparent;
           border: none;
@@ -39,8 +43,20 @@
         & img {
           @include flexCenter();
           cursor: pointer;
-          margin-inline-start: 0.5em;
         }
+      }
+    }
+
+    & .header-navbar {
+      @include flexCenter();
+      & button {
+        @include flexCenter();
+        @include btnText();
+        color: #6a6969;
+        width: fit-content;
+        background-color: transparent;
+        border: none;
+        margin-inline-start: 1em;
       }
     }
 
@@ -93,6 +109,60 @@
 
         & .btn-logout {
           @extend .btn-login;
+        }
+
+        & .create-design-btn {
+          @extend .btn-login;
+          background-color: #8b3dff;
+          width: fit-content;
+
+          &:hover {
+            background-color: #7334d1;
+          }
+
+          & span {
+            @include btnText();
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .header-container {
+    & .app-header {
+      & section {
+        &:first-of-type {
+          & .navbar-btn {
+            opacity: 1;
+          }
+
+          & img {
+            width: 70px;
+            margin-inline-start: 0.5em;
+          }
+        }
+      }
+
+      & .header-navbar {
+        display: none !important;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-phone) {
+  .header-container {
+    & .app-header {
+      & section {
+        &:nth-of-type(2) {
+          & .create-design-btn {
+            width: 5em;
+            padding: 0;
+            margin: 0;
+          }
         }
       }
     }

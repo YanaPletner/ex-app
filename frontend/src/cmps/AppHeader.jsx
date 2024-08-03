@@ -1,32 +1,34 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-import { Sidebar } from "./Sidebar.jsx";
+import { Navbar } from "./Navbar.jsx";
 import { LoginSignUp } from "./LoginSignUp.jsx";
+import { PopUp } from "./PopUp.jsx";
 
 export function AppHeader({ isUserLoggedIn, setIsUserLoggedIn }) {
-  const [openSidebar, setOpenSidebar] = useState(false);
+  const [openNavbar, setOpenNavbar] = useState(false);
   const [openForm, setOpenForm] = useState(false);
   const [formType, setFormType] = useState(null); // null, 'login', or 'signup'
+  const [showPopUp, setShowPopUp] = useState(false);
 
   function handleLogin() {
     setFormType("login");
     setOpenForm(true);
-    if (openSidebar) setOpenSidebar(false);
+    if (openNavbar) setOpenNavbar(false);
   }
 
   function handleSignup() {
     setFormType("signup");
     setOpenForm(true);
-    if (openSidebar) setOpenSidebar(false);
+    if (openNavbar) setOpenNavbar(false);
   }
 
-  function handleSidebar() {
-    setOpenSidebar(!openSidebar);
+  function handleNavbar() {
+    setOpenNavbar(!openNavbar);
   }
 
   function handleOverlayClick() {
-    setOpenSidebar(false);
+    setOpenNavbar(false);
   }
 
   return (
@@ -35,21 +37,22 @@ export function AppHeader({ isUserLoggedIn, setIsUserLoggedIn }) {
         <LoginSignUp setOpenForm={setOpenForm} formType={formType} />
       )}
 
-      {openSidebar && (
-        <Sidebar
+      {openNavbar && (
+        <Navbar
           handleOverlayClick={handleOverlayClick}
           handleLogin={handleLogin}
           handleSignup={handleSignup}
-          setOpenSidebar={setOpenSidebar}
+          setOpenNavbar={setOpenNavbar}
+          isUserLoggedIn={isUserLoggedIn}
         />
       )}
 
       <header className="app-header">
         <section>
           <button
-            className="sidebar-btn"
-            title="show main menu"
-            onClick={handleSidebar}
+            className="navbar-btn"
+            title="show menu"
+            onClick={handleNavbar}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -70,6 +73,56 @@ export function AppHeader({ isUserLoggedIn, setIsUserLoggedIn }) {
               alt=""
             />
           </NavLink>
+
+          <nav className="header-navbar">
+            <button>
+              <span>Home</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  fill="currentColor"
+                  d="m9.216 7.619 4.204 4.204a.25.25 0 0 1 0 .354l-4.204 4.204a.75.75 0 0 0 1.06 1.061l4.205-4.204a1.75 1.75 0 0 0 0-2.475l-4.204-4.205a.75.75 0 0 0-1.061 1.06"
+                ></path>
+              </svg>
+            </button>
+
+            <button>
+              <span>Projects</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  fill="currentColor"
+                  d="m9.216 7.619 4.204 4.204a.25.25 0 0 1 0 .354l-4.204 4.204a.75.75 0 0 0 1.06 1.061l4.205-4.204a1.75 1.75 0 0 0 0-2.475l-4.204-4.205a.75.75 0 0 0-1.061 1.06"
+                ></path>
+              </svg>
+            </button>
+
+            <button>
+              <span>Templates</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  fill="currentColor"
+                  d="m9.216 7.619 4.204 4.204a.25.25 0 0 1 0 .354l-4.204 4.204a.75.75 0 0 0 1.06 1.061l4.205-4.204a1.75 1.75 0 0 0 0-2.475l-4.204-4.205a.75.75 0 0 0-1.061 1.06"
+                ></path>
+              </svg>
+            </button>
+          </nav>
         </section>
 
         <section>
@@ -87,18 +140,18 @@ export function AppHeader({ isUserLoggedIn, setIsUserLoggedIn }) {
 
           {isUserLoggedIn && (
             <>
-              <button
-                className="btn-logout"
-                onClick={() => setIsUserLoggedIn(false)}
-              >
-                <span>Log Out</span>
+              <button className="create-design-btn">
+                <span>Create a design</span>
               </button>
-              <div className="profile">
+
+              <div className="profile" onClick={() => setShowPopUp(!showPopUp)}>
                 <img
                   src="https://a.storyblok.com/f/191576/1200x800/215e59568f/round_profil_picture_after_.webp"
                   alt=""
                 />
               </div>
+
+              {showPopUp && <PopUp setIsUserLoggedIn={setIsUserLoggedIn} />}
             </>
           )}
         </section>
