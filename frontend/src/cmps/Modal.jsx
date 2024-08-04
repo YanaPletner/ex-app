@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export function PopUp({ setIsUserLoggedIn }) {
+export function Modal({ setIsUserLoggedIn }) {
   return (
     <div className="pop-up-modal">
       <section className="user-details">

@@ -3,13 +3,13 @@ import { NavLink } from "react-router-dom";
 
 import { Navbar } from "./Navbar.jsx";
 import { LoginSignUp } from "./LoginSignUp.jsx";
-import { PopUp } from "./PopUp.jsx";
+import { Modal } from "./Modal.jsx";
 
 export function AppHeader({ isUserLoggedIn, setIsUserLoggedIn }) {
   const [openNavbar, setOpenNavbar] = useState(false);
   const [openForm, setOpenForm] = useState(false);
   const [formType, setFormType] = useState(null); // null, 'login', or 'signup'
-  const [showPopUp, setShowPopUp] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   function handleLogin() {
     setFormType("login");
@@ -144,14 +144,14 @@ export function AppHeader({ isUserLoggedIn, setIsUserLoggedIn }) {
                 <span>Create a design</span>
               </button>
 
-              <div className="profile" onClick={() => setShowPopUp(!showPopUp)}>
+              <div className="profile" onClick={() => setShowModal(!showModal)}>
                 <img
                   src="https://a.storyblok.com/f/191576/1200x800/215e59568f/round_profil_picture_after_.webp"
                   alt=""
                 />
               </div>
 
-              {showPopUp && <PopUp setIsUserLoggedIn={setIsUserLoggedIn} />}
+              {showModal && <Modal setIsUserLoggedIn={setIsUserLoggedIn} />}
             </>
           )}
         </section>

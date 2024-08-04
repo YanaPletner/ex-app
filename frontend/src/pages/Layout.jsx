@@ -1,3 +1,9 @@
+import { Posts } from "../cmps/Posts.jsx";
+
 export function Layout() {
-  return <h1>Layout</h1>;
+  return (
+    <section>
+      <Posts />
+    </section>
+  );
 }
