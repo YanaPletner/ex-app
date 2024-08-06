@@ -1,0 +1,14 @@
+.carousel-recent-designs {
+  width: 70%;
+  margin-block-start: 5em;
+
+  & .recent-design {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    margin-inline: 10px;
+    padding: 0.5em;
+    border: 1px solid rgb(212, 209, 209);
+    border-radius: 5px;
+  }
+}

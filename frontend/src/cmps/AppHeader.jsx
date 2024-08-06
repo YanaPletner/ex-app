@@ -3,13 +3,13 @@ import { NavLink } from "react-router-dom";
 
 import { Navbar } from "./Navbar.jsx";
 import { LoginSignUp } from "./LoginSignUp.jsx";
-import { Modal } from "./Modal.jsx";
+import { UserModal } from "./UserModal.jsx";
 
 export function AppHeader({ isUserLoggedIn, setIsUserLoggedIn }) {
   const [openNavbar, setOpenNavbar] = useState(false);
   const [openForm, setOpenForm] = useState(false);
   const [formType, setFormType] = useState(null); // null, 'login', or 'signup'
-  const [showModal, setShowModal] = useState(false);
+  const [showUserModal, setShowUserModal] = useState(false);
 
   function handleLogin() {
     setFormType("login");
@@ -75,21 +75,23 @@ export function AppHeader({ isUserLoggedIn, setIsUserLoggedIn }) {
           </NavLink>
 
           <nav className="header-navbar">
-            <button>
-              <span>Home</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path
-                  fill="currentColor"
-                  d="m9.216 7.619 4.204 4.204a.25.25 0 0 1 0 .354l-4.204 4.204a.75.75 0 0 0 1.06 1.061l4.205-4.204a1.75 1.75 0 0 0 0-2.475l-4.204-4.205a.75.75 0 0 0-1.061 1.06"
-                ></path>
-              </svg>
-            </button>
+            <NavLink to={"/"}>
+              <button>
+                <span>Home</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    fill="currentColor"
+                    d="m9.216 7.619 4.204 4.204a.25.25 0 0 1 0 .354l-4.204 4.204a.75.75 0 0 0 1.06 1.061l4.205-4.204a1.75 1.75 0 0 0 0-2.475l-4.204-4.205a.75.75 0 0 0-1.061 1.06"
+                  ></path>
+                </svg>
+              </button>
+            </NavLink>
 
             <button>
               <span>Projects</span>
@@ -122,6 +124,23 @@ export function AppHeader({ isUserLoggedIn, setIsUserLoggedIn }) {
                 ></path>
               </svg>
             </button>
+            <NavLink to={"/posts"}>
+              <button>
+                <span>Posts</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    fill="currentColor"
+                    d="m9.216 7.619 4.204 4.204a.25.25 0 0 1 0 .354l-4.204 4.204a.75.75 0 0 0 1.06 1.061l4.205-4.204a1.75 1.75 0 0 0 0-2.475l-4.204-4.205a.75.75 0 0 0-1.061 1.06"
+                  ></path>
+                </svg>
+              </button>
+            </NavLink>
           </nav>
         </section>
 
@@ -144,14 +163,19 @@ export function AppHeader({ isUserLoggedIn, setIsUserLoggedIn }) {
                 <span>Create a design</span>
               </button>
 
-              <div className="profile" onClick={() => setShowModal(!showModal)}>
+              <div
+                className="profile"
+                onClick={() => setShowUserModal(!showUserModal)}
+              >
                 <img
                   src="https://a.storyblok.com/f/191576/1200x800/215e59568f/round_profil_picture_after_.webp"
                   alt=""
                 />
               </div>
 
-              {showModal && <Modal setIsUserLoggedIn={setIsUserLoggedIn} />}
+              {showUserModal && (
+                <UserModal setIsUserLoggedIn={setIsUserLoggedIn} />
+              )}
             </>
           )}
         </section>

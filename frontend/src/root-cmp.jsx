@@ -2,19 +2,29 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 import { AppHeader } from "./cmps/AppHeader.jsx";
 import { HomePage } from "./pages/HomePage.jsx";
-import { Layout } from "./pages/Layout.jsx";
+import { Posts } from "./cmps/Posts.jsx";
+
+import { useState } from "react";
 
 import "../src/assets/style/main.scss";
 
 export function App() {
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(true);
+
   return (
     <Router>
       <section>
-        {/* <AppHeader /> */}
+        <AppHeader
+          isUserLoggedIn={isUserLoggedIn}
+          setIsUserLoggedIn={setIsUserLoggedIn}
+        />
         <main>
           <Routes>
-            <Route element={<HomePage />} path="/" />
-            <Route element={<Layout />} path="/layout" />
+            <Route
+              element={<HomePage isUserLoggedIn={isUserLoggedIn} />}
+              path="/"
+            />
+            <Route element={<Posts />} path="/posts" />
           </Routes>
         </main>
       </section>

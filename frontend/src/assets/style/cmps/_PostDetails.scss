@@ -1,5 +1,30 @@
 .post-card {
   word-wrap: break-word;
   break-inside: avoid;
-  border: 1px solid black;
+  border: 1px solid rgb(215, 211, 211);
+  border-radius: 10px;
+  padding: 0 1em 1em;
+  margin-block-end: 2em;
+  background-color: aliceblue;
+  background-image: linear-gradient(90deg, #5cc4c7, #b385ef);
+  // font-family: playfair;
+
+  & button {
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+
+    &.material-symbols-outlined {
+      display: block;
+      position: relative;
+      left: 90%;
+      color: rgb(38, 37, 37);
+    }
+  }
+
+  & .delete-btn-img {
+    width: 2em;
+    border: none;
+  }
 }

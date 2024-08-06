@@ -1,15 +1,21 @@
+/* setup */
+@import "./setup/typography.scss";
+@import "./setup/vars.scss";
+
 /* Base */
-@import "base/base.scss";
-@import "base/helpers.scss";
+@import "basic/base.scss";
+@import "basic/helpers.scss";
 
 /* Components */
 @import "./cmps/AppHeader.scss";
 @import "./cmps/Navbar.scss";
 @import "./cmps/LoginSignUp.scss";
 @import "./cmps/Canvas.scss";
-@import "./cmps/Modal.scss";
+@import "./cmps/UserModal.scss";
 @import "./cmps/Posts.scss";
 @import "./cmps/PostDetails.scss";
+@import "./cmps/PostForm.scss";
+@import "./cmps/AppCarousel.scss";
 
 /* Pages */
 @import "./pages/HomePage.scss";

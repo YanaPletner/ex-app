@@ -1,0 +1,66 @@
+@mixin flexCenter($flex-direction) {
+  display: flex;
+  justify-content: center;
+  flex-direction: $flex-direction;
+}
+
+@mixin btn() {
+  cursor: pointer;
+}
+
+.post-form {
+  @include flexCenter(row);
+  background-color: aliceblue;
+
+  & form {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 20em;
+    width: fit-content;
+    padding: 1em;
+    background-color: aliceblue;
+    z-index: 4;
+
+    & .close-btn {
+      @include flexCenter(row);
+      @include btn();
+      align-items: center;
+      position: relative;
+      top: 10%;
+      background-color: #11171d99;
+      width: fit-content;
+      padding: 0.5em;
+      border-radius: 50%;
+      color: #fff;
+    }
+
+    & .error {
+      border: 1px solid rgb(225, 68, 68);
+      border-radius: 5px;
+    }
+
+    & .err-msg {
+      @extend .error;
+      text-align: center;
+      font-size: 0.8em;
+      max-width: 30em;
+      margin-inline: auto;
+      padding: 1em;
+      margin-block-start: 1em;
+      color: rgb(228, 39, 39);
+    }
+  }
+}
+
+.post-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(1px);
+  background-color: rgba(100, 99, 99, 0.5);
+  z-index: 2;
+  transform: 2s;
+}

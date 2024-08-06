@@ -22,7 +22,7 @@ export function LoginSignUp({ setOpenForm, formType }) {
   }
 
   return (
-    <>
+    <section>
       <div className="login-signup-overlay fade-in"></div>
       <div className="login-signup-form">
         <span className="close-btn" onClick={() => setOpenForm(false)}>
@@ -148,6 +148,6 @@ export function LoginSignUp({ setOpenForm, formType }) {
           <span>Continue with GitHub</span>
         </button>
       </div>
-    </>
+    </section>
   );
 }

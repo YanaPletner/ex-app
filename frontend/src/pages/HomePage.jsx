@@ -1,36 +1,28 @@
 import { useState } from "react";
 
 import { AppHeader } from "../cmps/AppHeader.jsx";
-import { Layout } from "./Layout.jsx";
 import { Posts } from "../cmps/Posts.jsx";
+import { AppCarousel } from "../cmps/AppCarousel.jsx";
 
-export function HomePage() {
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(true);
-
+export function HomePage({ isUserLoggedIn }) {
   return (
     <>
-      <AppHeader
-        isUserLoggedIn={isUserLoggedIn}
-        setIsUserLoggedIn={setIsUserLoggedIn}
-      />
+      <section className="home-page">
+        <section className="enter-page">
+          <h2>
+            What will you <span className="design">design</span> today?
+          </h2>
 
-      <main className="home-page">
-        {!isUserLoggedIn && (
-          <section className="enter-page">
-            <h2>
-              What will you <span className="design">design</span> today?
-            </h2>
-            <h3>
-              Canva makes it easy to create and share professional designs.
-            </h3>
+          <h3>Canva makes it easy to create and share professional designs.</h3>
+          {!isUserLoggedIn && (
             <button className="btn-signup">
               <span>Sign up for free</span>
             </button>
-          </section>
-        )}
+          )}
+        </section>
 
-        {isUserLoggedIn && <Posts />}
-      </main>
+        {isUserLoggedIn && <AppCarousel />}
+      </section>
     </>
   );
 }
