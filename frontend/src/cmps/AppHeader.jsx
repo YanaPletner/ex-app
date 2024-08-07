@@ -159,9 +159,11 @@ export function AppHeader({ isUserLoggedIn, setIsUserLoggedIn }) {
 
           {isUserLoggedIn && (
             <>
-              <button className="create-design-btn">
-                <span>Create a design</span>
-              </button>
+              <NavLink to={"/design/create"}>
+                <button className="create-design-btn">
+                  <span>Create a design</span>
+                </button>
+              </NavLink>
 
               <div
                 className="profile"

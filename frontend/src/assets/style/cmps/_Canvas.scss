@@ -5,6 +5,7 @@
 }
 
 .canvas-container {
+  @include flexCenter();
   margin-block-start: 5em;
   height: fit-content;
 

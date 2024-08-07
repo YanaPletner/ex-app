@@ -3,7 +3,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { AppHeader } from "./cmps/AppHeader.jsx";
 import { HomePage } from "./pages/HomePage.jsx";
 import { Posts } from "./cmps/Posts.jsx";
-
+import { CreateDesign } from "./cmps/CreateDesign.jsx";
 import { useState } from "react";
 
 import "../src/assets/style/main.scss";
@@ -25,6 +25,7 @@ export function App() {
               path="/"
             />
             <Route element={<Posts />} path="/posts" />
+            <Route element={<CreateDesign />} path="/design/create" />
           </Routes>
         </main>
       </section>

@@ -17,35 +17,6 @@ const postSchema = new Schema({
         ref: 'User',
         required: true,
     },
-    // tags: [{
-    //     type: String,
-    // }],
-    // likes: {
-    //     type: Number,
-    //     default: 0,
-    // },
-    // comments: [{
-    //     user: {
-    //         type: mongoose.Schema.Types.ObjectId,
-    //         ref: 'User',
-    //     },
-    //     comment: {
-    //         type: String,
-    //         required: true,
-    //     },
-    //     createdAt: {
-    //         type: Date,
-    //         default: Date.now,
-    //     }
-    // }],
-    // createdAt: {
-    //     type: Date,
-    //     default: Date.now,
-    // },
-    // updatedAt: {
-    //     type: Date,
-    //     default: Date.now,
-    // }
 }, { timestamps: true })
 
 export default mongoose.model("post", postSchema)
